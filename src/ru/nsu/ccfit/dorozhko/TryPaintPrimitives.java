@@ -1,9 +1,10 @@
+package ru.nsu.ccfit.dorozhko;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by Anton on 25.02.14.
@@ -16,16 +17,38 @@ public class TryPaintPrimitives {
      */
     public TryPaintPrimitives() {
         MainFrame mainFrame = new MainFrame("TryPaintPrimitives");
+        BufferedImage bufferedImage = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
 
         // stubs
-        mainFrame.getFileMenu().add(new JMenuItem("Сохранить"));
-        mainFrame.getAboutMenu().add(new JMenuItem("Контакты"));
+        JMenuItem save = new JMenuItem("Сохранить");
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Заглушка");
+            }
+        });
+        mainFrame.getFileMenu().add(save);
+        JMenuItem contacts = new JMenuItem("<html><u>К</u>онтакты</html>");
+        contacts.setMnemonic(KeyEvent.VK_R);
+        contacts.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "name: Ice \n mail: fff@gmail.com\n ");
+            }
+        });
+        mainFrame.getAboutMenu().add(contacts);
 
-        JMenu jMenu = new JMenu("Примитивы");
-        BresenhamLine bresenhamLine = new BresenhamLine(mainFrame);
+        JMenu jMenu = new JMenu("<html><u>П</u>римитивы</html>");
+        jMenu.setMnemonic(KeyEvent.VK_G);
+        JLabel canvas = new JLabel(new ImageIcon(bufferedImage));
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.add(canvas);
+
+        BresenhamLine bresenhamLine = new BresenhamLine(mainFrame, canvas, bufferedImage);
         jMenu.add(bresenhamLine);
         mainFrame.addAction(bresenhamLine);
 
+        mainFrame.addCanvas(scrollPane);
         mainFrame.addMenu(jMenu);
         mainFrame.setVisible(true);
     }
@@ -41,14 +64,21 @@ public class TryPaintPrimitives {
         private final MainFrame mainFrame;
         private int xstart, ystart;
         private int xend, yend;
+        private final JLabel jLabel;
+        private Graphics g;
 
         /**
          *
          * @param mainFrame1 blank main frame
          */
-        public BresenhamLine(MainFrame mainFrame1) {
-            super("Bresenham Line", MainFrame.createImageIcon("images/line.png"));
+        public BresenhamLine(MainFrame mainFrame1, JLabel canvas, BufferedImage bufferedImage) {
+            super("Bresenham Line", MainFrame.createImageIcon("/images/line.png"));
+            putValue(MNEMONIC_KEY, KeyEvent.VK_B);
+           // putValue(ACCELERATOR_KEY, KeyEvent.VK_B);
             this.mainFrame = mainFrame1;
+
+            jLabel = canvas;
+            g = bufferedImage.getGraphics();
         }
 
         // Этот код "рисует" все 9 видов отрезков. Наклонные (из начала в конец и из конца в начало каждый), вертикальный и горизонтальный - тоже из начала в конец и из конца в начало, и точку.
@@ -57,15 +87,14 @@ public class TryPaintPrimitives {
             //возвращает 0, если аргумент (x) равен нулю; -1, если x < 0 и 1, если x > 0.
         }
         /**
-         * <p> draw line from (xstart, ystart) to (xend, yend) on graphics g </p>
+         * <p> draw line from (xstart, ystart) to (xend, yend) </p>
          * <p> setPixel made as g.drawLine(x, y, x, y); </p>
          * @param xstart - start X coordinate
          * @param ystart - start Y coordinate
          * @param xend   - end X coordinate
          * @param yend   - end Y coordinate
-         * @param g      - graphics to draw on
          */
-        public void drawBresenhamLine(int xstart, int ystart, int xend, int yend, Graphics g)
+        public void drawBresenhamLine(int xstart, int ystart, int xend, int yend)
         {
             int x, y, dx, dy, incx, incy, pdx, pdy, es, el, err;
 
@@ -141,9 +170,8 @@ public class TryPaintPrimitives {
          * @param ystart - start Y coordinate
          * @param xend  - end X coordinate
          * @param yend  - end Y coordinate
-         * @param g - graphics to erase off
          */
-        public void eraseBresenhamLine(int xstart, int ystart, int xend, int yend, Graphics g)
+        public void eraseBresenhamLine(int xstart, int ystart, int xend, int yend)
         {
             int x, y, dx, dy, incx, incy, pdx, pdy, es, el, err;
 
@@ -211,7 +239,7 @@ public class TryPaintPrimitives {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            this.mainFrame.getDisplayPanel().addMouseListener(mouseInputListenerStart);
+            this.jLabel.addMouseListener(mouseInputListenerStart);
         }
 
         /**
@@ -222,9 +250,9 @@ public class TryPaintPrimitives {
             public void mouseClicked(MouseEvent e) {
                 xstart = e.getX();
                 ystart = e.getY();
-                mainFrame.getDisplayPanel().removeMouseListener(mouseInputListenerStart);
-                mainFrame.getDisplayPanel().addMouseMotionListener(motionListener);
-                mainFrame.getDisplayPanel().addMouseListener(mouseInputListenerEnd);
+                jLabel.removeMouseListener(mouseInputListenerStart);
+                jLabel.addMouseMotionListener(motionListener);
+                jLabel.addMouseListener(mouseInputListenerEnd);
 
             }
 
@@ -275,9 +303,9 @@ public class TryPaintPrimitives {
                 xend = e.getX();
                 yend = e.getY();
 
-                eraseBresenhamLine(xstart, ystart, xendOld, yendOld, mainFrame.getDisplay().createGraphics());
-                drawBresenhamLine(xstart, ystart, xend, yend, mainFrame.getDisplay().createGraphics());
-                mainFrame.getDisplayPanel().repaint();
+                eraseBresenhamLine(xstart, ystart, xendOld, yendOld);
+                drawBresenhamLine(xstart, ystart, xend, yend);
+                jLabel.repaint();
             }
         };
 
@@ -287,12 +315,12 @@ public class TryPaintPrimitives {
         private final MouseInputListener mouseInputListenerEnd = new MouseInputListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mainFrame.getDisplayPanel().removeMouseMotionListener(motionListener);
-                mainFrame.getDisplayPanel().removeMouseListener(mouseInputListenerEnd);
+                jLabel.removeMouseMotionListener(motionListener);
+                jLabel.removeMouseListener(mouseInputListenerEnd);
                 xend = e.getX();
                 yend = e.getY();
-                drawBresenhamLine(xstart, ystart, xend, yend, mainFrame.getDisplay().createGraphics());
-                mainFrame.getDisplayPanel().repaint();
+                drawBresenhamLine(xstart, ystart, xend, yend);
+                jLabel.repaint();
             }
 
             @Override

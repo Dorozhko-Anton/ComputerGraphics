@@ -1,9 +1,12 @@
+package ru.nsu.ccfit.dorozhko;
+
+import sun.awt.VerticalBagLayout;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 
 /**
  * Created by Anton on 24.02.14.
@@ -14,7 +17,6 @@ public class MainFrame extends JFrame {
     private final JMenu fileMenu;
     private final JMenu aboutMenu;
     private final JPanel displayPanel;
-    private final BufferedImage display;
 
     /**
      * <p> Constructor creates main JFrame with some generic menu items like 'Exit' </p>
@@ -32,9 +34,16 @@ public class MainFrame extends JFrame {
         menuBar.add(fileMenu);
 
         aboutMenu = new JMenu("О программе");
+        aboutMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Лабораторная работа №0");
+            }
+        });
         menuBar.add(aboutMenu);
 
         JMenuItem exitMenu = new JMenuItem("Выход");
+        exitMenu.setMnemonic(KeyEvent.VK_D);
         exitMenu.setAccelerator(KeyStroke.getKeyStroke('D'));
         fileMenu.add(exitMenu);
         exitMenu.addActionListener(new ActionListener() {
@@ -50,6 +59,7 @@ public class MainFrame extends JFrame {
 
 
         toolBar = new JToolBar();
+        toolBar.setFloatable(false);
 
         this.addAction(new AbstractAction("Выход", MainFrame.createImageIcon("/images/exit.png")) {
             @Override
@@ -63,12 +73,7 @@ public class MainFrame extends JFrame {
         add(container, BorderLayout.NORTH);
 
         displayPanel = new JPanel();
-        display =
-                (new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB));
-
-        displayPanel.add(new JLabel(new ImageIcon(display)));
-
-
+        displayPanel.setLayout(new BorderLayout());
         add(displayPanel, BorderLayout.CENTER);
     }
 
@@ -90,13 +95,6 @@ public class MainFrame extends JFrame {
         toolBar.add(action);
     }
 
-    /**
-     *
-     * @return get BufferedImage to draw on
-     */
-    public BufferedImage getDisplay() {
-        return display;
-    }
 
     /**
      *
@@ -116,10 +114,12 @@ public class MainFrame extends JFrame {
 
     /**
      *
-     * @return get JPanel that contains Display
+     * @param c - component you will draw on
      */
-    public JPanel getDisplayPanel() {
-        return displayPanel;
+    public void addCanvas(Component c) {
+
+        displayPanel.add(c, BorderLayout.CENTER);
+        displayPanel.repaint();
     }
 
     /**
