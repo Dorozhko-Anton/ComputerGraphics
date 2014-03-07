@@ -73,30 +73,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/ccfit/dorozhko/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="8" selection-start="2283" selection-end="2283" vertical-scroll-proportion="0.0" vertical-offset="866" max-vertical-offset="2584">
+            <state line="29" column="0" selection-start="804" selection-end="804" vertical-scroll-proportion="0.33242506" vertical-offset="371" max-vertical-offset="2618">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1052#1256#0" expanded="true" />
-                <element signature="e#1245#1246#0" expanded="true" />
-                <element signature="e#1519#1676#0" expanded="true" />
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="class#1929:2136" expanded="false" />
-                <element signature="e#2863#2864#0" expanded="true" />
-                <element signature="e#2894#2895#0" expanded="true" />
-                <element signature="e#2999#3000#0" expanded="true" />
-                <element signature="e#3031#3032#0" expanded="true" />
+                <element signature="e#1216#1420#0" expanded="true" />
+                <element signature="e#1409#1410#0" expanded="true" />
+                <element signature="e#1683#1840#0" expanded="true" />
+                <element signature="e#1829#1830#0" expanded="true" />
+                <element signature="class#2093:2300" expanded="false" />
+                <element signature="e#3027#3028#0" expanded="true" />
+                <element signature="e#3058#3059#0" expanded="true" />
+                <element signature="e#3163#3164#0" expanded="true" />
+                <element signature="e#3195#3196#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TryPaintPrimitives.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TryPaintPrimitives.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/ccfit/dorozhko/TryPaintPrimitives.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="31" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.8" vertical-offset="3039" max-vertical-offset="5117">
+            <state line="44" column="31" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.0" vertical-offset="3039" max-vertical-offset="5117">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#655#845#0" expanded="true" />
@@ -299,7 +299,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="ComputerGraphics" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -484,7 +490,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39908257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -495,7 +501,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29758307" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33639145" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33639145" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -535,15 +541,15 @@
         <state line="9" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="2329">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1052#1256#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1519#1676#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="class#1929:2136" expanded="false" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#2894#2895#0" expanded="true" />
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
+            <element signature="e#1216#1420#0" expanded="true" />
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1683#1840#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="class#2093:2300" expanded="false" />
+            <element signature="e#3027#3028#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#3195#3196#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -606,27 +612,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/ccfit/dorozhko/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="8" selection-start="2283" selection-end="2283" vertical-scroll-proportion="0.0" vertical-offset="866" max-vertical-offset="2584">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1052#1256#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1519#1676#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="class#1929:2136" expanded="false" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#2894#2895#0" expanded="true" />
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/ccfit/dorozhko/TryPaintPrimitives.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="31" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.8" vertical-offset="3039" max-vertical-offset="5117">
+        <state line="44" column="31" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.0" vertical-offset="3039" max-vertical-offset="5117">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#655#845#0" expanded="true" />
@@ -635,6 +623,24 @@
             <element signature="e#1253#1254#0" expanded="true" />
             <element signature="method#sign#0;class#BresenhamLine#0;class#TryPaintPrimitives#0" expanded="false" />
             <element signature="method#drawBresenhamLine#0;class#BresenhamLine#0;class#TryPaintPrimitives#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/ccfit/dorozhko/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="804" selection-end="804" vertical-scroll-proportion="0.33242506" vertical-offset="371" max-vertical-offset="2618">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1216#1420#0" expanded="true" />
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1683#1840#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="class#2093:2300" expanded="false" />
+            <element signature="e#3027#3028#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#3195#3196#0" expanded="true" />
           </folding>
         </state>
       </provider>
