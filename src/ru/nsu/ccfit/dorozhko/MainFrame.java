@@ -1,11 +1,7 @@
 package ru.nsu.ccfit.dorozhko;
 
-import sun.awt.VerticalBagLayout;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 /**
@@ -16,7 +12,7 @@ public class MainFrame extends JFrame {
     private final JToolBar toolBar;
     private final JMenu fileMenu;
     private final JMenu aboutMenu;
-    private final JPanel displayPanel;
+    //private final JPanel displayPanel;
 
     /**
      * <p> Constructor creates main JFrame with some generic menu items like 'Exit' </p>
@@ -35,48 +31,23 @@ public class MainFrame extends JFrame {
         fileMenu.setMnemonic(KeyEvent.VK_A);
         menuBar.add(fileMenu);
 
-        aboutMenu = new JMenu("О программе");
-        aboutMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Лабораторная работа №0");
-            }
-        });
-        menuBar.add(aboutMenu);
+        aboutMenu = new JMenu("Справка");
 
-        JMenuItem exitMenu = new JMenuItem("Выход");
-        exitMenu.setMnemonic(KeyEvent.VK_D);
-        exitMenu.setAccelerator(KeyStroke.getKeyStroke('D'));
-        fileMenu.add(exitMenu);
-        exitMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        menuBar.add(aboutMenu);
 
         Container container = new Container();
         container.setLayout(new BorderLayout());
         container.add(menuBar, BorderLayout.NORTH);
 
-
         toolBar = new JToolBar();
         toolBar.setFloatable(false);
 
-        this.addAction(new AbstractAction("Выход", MainFrame.createImageIcon("/images/exit.png")) {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
         container.add(toolBar, BorderLayout.SOUTH);
-
         add(container, BorderLayout.NORTH);
 
-        displayPanel = new JPanel();
-        displayPanel.setLayout(new BorderLayout());
-        add(displayPanel, BorderLayout.CENTER);
+//        displayPanel = new JPanel();
+//        displayPanel.setLayout(new BorderLayout());
+//        add(displayPanel, BorderLayout.CENTER);
     }
 
     /**
@@ -120,8 +91,10 @@ public class MainFrame extends JFrame {
      */
     public void addCanvas(Component c) {
 
-        displayPanel.add(c, BorderLayout.CENTER);
-        displayPanel.repaint();
+        this.add(c, BorderLayout.CENTER);
+        pack();
+        setLocationRelativeTo(null);
+        repaint();
     }
 
     /**
@@ -129,7 +102,7 @@ public class MainFrame extends JFrame {
      * @param path
      * @return  Returns an ImageIcon, or null if the path was invalid.
      */
-    protected static ImageIcon createImageIcon(String path) {
+    public static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = MainFrame.class.getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL);

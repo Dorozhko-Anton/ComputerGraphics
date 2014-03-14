@@ -3,7 +3,10 @@ package ru.nsu.ccfit.dorozhko;
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
 /**
@@ -16,27 +19,8 @@ public class TryPaintPrimitives {
      *
      */
     public TryPaintPrimitives() {
-        MainFrame mainFrame = new MainFrame("TryPaintPrimitives");
+        final MainFrame mainFrame = new MainFrame("TryPaintPrimitives");
         BufferedImage bufferedImage = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
-
-        // stubs
-        JMenuItem save = new JMenuItem("Сохранить");
-        save.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Заглушка");
-            }
-        });
-        mainFrame.getFileMenu().add(save);
-        JMenuItem contacts = new JMenuItem("<html><u>К</u>онтакты</html>");
-        contacts.setMnemonic(KeyEvent.VK_R);
-        contacts.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "name: Ice \n mail: fff@gmail.com\n ");
-            }
-        });
-        mainFrame.getAboutMenu().add(contacts);
 
         JMenu jMenu = new JMenu("<html><u>П</u>римитивы</html>");
         jMenu.setMnemonic(KeyEvent.VK_G);
@@ -51,6 +35,32 @@ public class TryPaintPrimitives {
         mainFrame.addCanvas(scrollPane);
         mainFrame.addMenu(jMenu);
         mainFrame.setVisible(true);
+
+        AbstractAction contacts = new AbstractAction("Контакты", MainFrame.createImageIcon("/images/contact.png")) {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JOptionPane.showMessageDialog(mainFrame, "name: Ice \n mail: fff@gmail.com\n ");
+            }
+        };
+        mainFrame.addAction(contacts);
+        mainFrame.getAboutMenu().add(contacts);
+
+        AbstractAction aboutAction = new AbstractAction("О программе", MainFrame.createImageIcon("/images/help_info2.png")) {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JOptionPane.showMessageDialog(mainFrame, "Лабораторная работа №0");
+            }
+        };
+        mainFrame.addAction(aboutAction);
+        mainFrame.getAboutMenu().add(aboutAction);
+        AbstractAction exitAction = new AbstractAction("Выход", MainFrame.createImageIcon("/images/exit.png")) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        };
+        mainFrame.addAction(exitAction);
+        mainFrame.getFileMenu().add(exitAction);
     }
 
     /*
